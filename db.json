@@ -5,6 +5,18 @@
       "name": "Chiranth BC",
       "email": "Chiranth@gmail.com",
       "phone": "1234567890"
+    },
+    {
+      "id": "8261",
+      "name": "Aditya Nagraj",
+      "email": "Nagraj@gmail.com",
+      "phone": "5617278283"
+    },
+    {
+      "id": "441d",
+      "name": "Rohit Sharma",
+      "email": "Rohit@gmail.com",
+      "phone": "7288383883"
     }
   ]
 }

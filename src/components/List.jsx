@@ -34,53 +34,58 @@ const List = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-6 bg-white showdow-md rounded-lg">
+    <div className="container mx-auto p-6 bg-white shadow-md rounded-lg">
       <div className="mb-6">
-        <h2 className="font-bold text-center text-cyan-400">Details</h2>
+        <h2 className="font-bold text-center text-cyan-400 text-2xl">
+          Details
+        </h2>
       </div>
 
-      <div className="mb-4">
+      <div className="mb-4 flex justify-end">
         <button
           onClick={() => navigate("/create")}
-          className="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded my-4"
+          className="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded"
         >
           Create New
         </button>
-        {myData.length > 0 ? (
-          myData.map((item) => (
-            <div
-              key={item.id}
-              className="mb-4 p-4 bg-gray-400 rounded-lg showdow-md"
-            >
-              <div className="mb-2">
-                <span className="font-medium text-gray-700 px-2">
-                  Name: {item.name}
-                </span>
-                <span className="font-medium text-gray-700 px-2">
-                  Email: {item.email}
-                </span>
-                <span className="font-medium text-gray-700 px-2">
-                  Phone: {item.phone}
-                </span>
-                <button
-                  className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3  mx-2 rounded"
-                  onClick={() => LoadEdit(item.id)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 mx-2 rounded"
-                  onClick={() => Remove(item.id)}
-                >
-                  Remove
-                </button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="text=gray-500 ">No data available</p>
-        )}
       </div>
+
+      {myData.length > 0 ? (
+        myData.map((item) => (
+          <div
+            key={item.id}
+            className="mb-4 p-4 bg-gray-200 rounded-lg shadow-md flex flex-col md:flex-row justify-between items-center"
+          >
+            <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
+              <span className="font-medium text-gray-700 px-2">
+                Name: {item.name}
+              </span>
+              <span className="font-medium text-gray-700 px-2">
+                Email: {item.email}
+              </span>
+              <span className="font-medium text-gray-700 px-2">
+                Phone: {item.phone}
+              </span>
+            </div>
+            <div className="flex space-x-2 ">
+              <button
+                className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded"
+                onClick={() => LoadEdit(item.id)}
+              >
+                Edit
+              </button>
+              <button
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+                onClick={() => Remove(item.id)}
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className="text-gray-500 text-center">No data available</p>
+      )}
     </div>
   );
 };
